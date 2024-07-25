@@ -62,6 +62,71 @@ Windows LAPS is required and must be properly configured in your environment to 
    }
    ```
 
+
+If you are using the non-Legacy version of LAPS, This is the script you must use instead:
+Note that the Legacy version is deprecated from Windows since April 2024
+
+
+Import-Module LAPS -ErrorAction SilentlyContinue
+   $isImport = Get-Module -List LAPS
+   if ($isImport)
+   {
+   try{        
+
+$null2 = [System.DirectoryServices.ActiveDirectory.Domain]::GetComputerDomain()
+
+$isDomain = $true
+
+}
+
+catch
+
+{
+
+$isDomain = $false
+
+}
+
+if ($isDomain)
+
+{
+
+$MyPassword = Get-LapsADPassword -Identity $PARAMETER1$ -AsPlainText
+
+if ($MyPassword.Password)
+
+{
+
+$Result.Username= "$$PARAMETER1$.\administrator"
+
+$Result.Domain = $MyPassword.Domain
+
+$Result.Password = $MyPassword.Password
+
+}
+
+else
+
+{
+
+$Result.Cancel=$True
+
+$Result.ErrorMessage="LAPS did not return any value!"
+
+}
+
+}
+
+else
+
+{
+
+$Result.Cancel=$True
+
+$Result.ErrorMessage="Your computer must be connected to a domain to use LAPS features!"
+
+}
+
    ![Add the PowerShell script](https://cdnweb.devolutions.net/docs/docs_en_kb_KB2336.png)
 1. In the ***Parameters*** tab, add the local administrator account name in the ***Parameter #1*** field.
 ![Set the local administrator account name](https://cdnweb.devolutions.net/docs/docs_en_kb_KB2337.png)
