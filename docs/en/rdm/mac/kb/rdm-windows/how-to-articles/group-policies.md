@@ -24,7 +24,7 @@ For now, the additional support is exclusively for the policies that require a n
 
 {{ en.RDM }} includes an administrative template file (.admx), which describes the policies that are offered. You will find it in the policies subfolder. Before you can manage GPOs in {{ en.RDM }}, you first need to list them in the Local Group Policy Editor. Here are the steps:
 
-1. Go to your policies subfolder. By default, the path is **C:\Program Files (x86)\Devolutions\Remote Desktop Manager\Policies**.
+1. Go to your policies subfolder. By default, the path is **C:\Program Files\Devolutions\Remote Desktop Manager\Policies**.
 1. Copy the Devolutions.admx file.
 1. Go to **C:\Windows\PolicyDefinitions**.
 1. Paste the Devolutions.admx file in the root of **C:\Windows\PolicyDefinitions**.
