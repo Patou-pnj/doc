@@ -82,3 +82,14 @@ Your data has been exported to the destination folder.
 1. Select the folders and entries to export.  
 ![Select the folder(s) to export](https://cdnweb.devolutions.net/docs/HUBB2027_2024_1.png)
 1. Click ***Download*** to export your selection in JSON format. The JSON file can be imported in {{ en.RDM }}, {{ en.DHUBB }}, or {{ en.DHUBP }}.
+
+
+If you get an error while you export using the PowerShell script provided by HUB Business:
+
+$entries = Get-HubEntriesForExport -VaultId $vault.id
+     |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | The api call with Hub failed. Forbidden - Access denied
+
+This could be related to the permissions on the System Vault.
+To avoid this issue, we suggest setting permission for your application identity directly by the System Permissions instead of per vaults.
+This global change will apply for proper permission on the system vault.
