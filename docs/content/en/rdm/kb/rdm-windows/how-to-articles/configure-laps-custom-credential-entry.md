@@ -74,3 +74,6 @@ Windows LAPS is required and must be properly configured in your environment to 
 1. Click on ***Update*** to save your changes.
 
 The RDP entry is now ready to be used and connect with the local administrator account managed by Windows LAPS.
+
+
+rtest 12
